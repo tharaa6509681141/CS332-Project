@@ -1,0 +1,140 @@
+/* CSS สำหรับ Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* เงา */
+    z-index: 1000; /* ทำให้แน่ใจว่าอยู่ด้านบนสุด */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .nav-con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  
+  .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  ul.menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul.menu > li {
+    margin: 0 10px;
+  }
+  
+  ul.menu > li > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s;
+  }
+  
+  ul.menu > li > a:hover {
+    color: #007bff; /* สีเมื่อ hover */
+  }
+  
+  .category-dropdown {
+    position: relative;
+  }
+  
+  .category-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .category-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
+  }
+  
+  .category-dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-dropdown-content ul li {
+    margin: 5px 0;
+  }
+  
+  .category-dropdown-content ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .category-btn:hover + .category-dropdown-content,
+  .category-dropdown-content:hover {
+    display: block;
+  }
+  
+  .nav-search-box {
+    width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  .nav-login-and-signup-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .nav-login-and-signup-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* จัดตำแหน่ง search-box ให้อยู่ตรงกลาง */
+  .nav-con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-con .menu {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-con .menu li:nth-child(3) {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
