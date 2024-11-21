@@ -1,140 +1,154 @@
-/* CSS สำหรับ Navbar */
+/* Reset */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header Navigation */
+header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff; /* สีพื้นหลัง */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* เงา */
-    z-index: 1000; /* ทำให้แน่ใจว่าอยู่ด้านบนสุด */
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  .nav-con {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  
-  .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  ul.menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  ul.menu > li {
-    margin: 0 10px;
-  }
-  
-  ul.menu > li > a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    padding: 10px 15px;
-    transition: color 0.3s;
-  }
-  
-  ul.menu > li > a:hover {
-    color: #007bff; /* สีเมื่อ hover */
-  }
-  
-  .category-dropdown {
-    position: relative;
-  }
-  
-  .category-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .category-dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 100;
-  }
-  
-  .category-dropdown-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .category-dropdown-content ul li {
-    margin: 5px 0;
-  }
-  
-  .category-dropdown-content ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .category-btn:hover + .category-dropdown-content,
-  .category-dropdown-content:hover {
-    display: block;
-  }
-  
-  .nav-search-box {
-    width: 400px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 5px;
-  }
-  
-  .nav-login-and-signup-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .nav-login-and-signup-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* จัดตำแหน่ง search-box ให้อยู่ตรงกลาง */
-  .nav-con {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .nav-con .menu {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .nav-con .menu li:nth-child(3) {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+/* Logo */
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Menu */
+ul.menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+ul.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+ul.menu li a:hover {
+  color: #007bff;
+}
+
+/* Category Dropdown */
+.category-dropdown {
+  position: relative;
+}
+
+.category-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Kanit', sans-serif;
+}
+
+.category-btn i.down::after {
+  content: "▼";
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
+
+.category-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 150px;
+}
+
+.category-dropdown-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-dropdown-content ul li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+.category-dropdown-content ul li a:hover {
+  background-color: #f1f1f1;
+}
+
+.category-dropdown:hover .category-dropdown-content {
+  display: block;
+}
+
+/* Search Box */
+.serach {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  width: 50%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Auth Box */
+.auth-box {
+  margin-left: 1.5rem;
+}
+
+.nav-login-and-signup-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Kanit', sans-serif;
+}
+
+.nav-login-and-signup-btn:hover {
+  background-color: #0056b3;
+}
