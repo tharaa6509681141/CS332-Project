@@ -9,41 +9,35 @@
 </head>
 <body>
 <header>
-    <nav>
-        <div class="container">
-            <div class="nav-con">
-                <div class="logo">
-                    <a href="#">BrainyBite</a>
-                </div>
-                <ul class="menu">
-                    <li><a href="#">หน้าแรก</a></li>
-                    <li><a href="#">บันทึกแล้ว</a></li>
-                    <li>
-                        <div class="category-dropdown">
-                            <button class="category-btn">หมวดหมู่
-                                <i class="down"></i>
-                            </button>
-                            <div class="category-dropdown-content">
-                                <ul>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                    <li><a href="#">คณิตศาสตร์</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="serach">
-                    <input type="text" class="search-box" />
-                </div>
-                <div class="auth-box">
-                    <button class="nav-login-and-signup-btn">เข้าสู่ระบบ/ลงทะเบียน</button>
+    <nav class="navbar">
+
+        <div class="menu">
+            <div class="logo">
+                <a href="#">BrainyBite</a>
+            </div>
+            <a href="#home">หน้าหลัก</a>
+            <div class="dropdown">
+                <button class="dropbtn">หมวดหมู่
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">คณิตศาสตร์</a>
+                    <a href="#">วิทยาศาสตร์</a>
+                    <a href="#">ภาษาต่างประเทศ</a>
+                    <a href="#">ศิลปะ</a>
                 </div>
             </div>
+            <a href="#bookmarks">บันทึกแล้ว</a>
         </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="ค้นหา..">
+        </div>
+
+        <div class="auth-box">
+            <button class="nav-signup-signin-btn">เข้าสู่ระบบ/ลงทะเบียน</button>
+        </div>
+
     </nav>
 </header>
 </body>
