@@ -3,7 +3,7 @@ name: Deploy Static Files
 on:
   push:
     paths:
-      - 'src/main/resources/static/**'
+      - 'brainy-bite/src/main/resources/static/**'
     branches:
       - main
 
@@ -18,7 +18,7 @@ jobs:
     - name: Copy static files
       run: |
         mkdir -p static-deploy
-        cp -r src/main/resources/static/* static-deploy/
+        cp -r brainy-bite/src/main/resources/static/* static-deploy/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
