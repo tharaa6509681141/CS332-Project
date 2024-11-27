@@ -23,10 +23,12 @@ body {
   display: flex;
   width: 35vw;
   justify-content: flex-start;
+  font-size: 16px;
 }
 
 .menu .logo {
   margin: 0 1.5vw;
+  font-weight: bold;
 }
 
 .menu a {
@@ -38,12 +40,15 @@ body {
 .dropdown {
   float: left;
   overflow: hidden;
+  
 }
 
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
+  font-family: 'Kanit', sans-serif;
+  background-color: inherit;
 }
 
 .dropdown-content {
@@ -79,6 +84,10 @@ body {
 .search-box input {
   font-size: 16px;
   font-family: 'Kanit', sans-serif;
+  border: none;
+  border-radius: 30px;
+  padding: 1vh 1vw;
+  width: 18vw;
 }
 
 .auth-box {
@@ -89,5 +98,9 @@ body {
 
 .auth-box button {
   margin-right: 1.5vw;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  border: none;
+  background-color: inherit;
 }
 
