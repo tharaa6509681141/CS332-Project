@@ -34,7 +34,7 @@ body {
 .menu a {
   color: black;
   text-decoration: none;
-  margin: 0 1.3vw;
+  margin: 0 2.5vw;
 }
 
 .dropdown {
@@ -64,7 +64,6 @@ body {
   color: black;
   text-decoration: none;
   display: block;
-  text-align: left;
 }
 
 .dropdown-content a:hover {
@@ -76,7 +75,7 @@ body {
 }
 
 .search-box {
-  width: 20vw;
+  width: 30vw;
   display: flex;
   justify-content: center;
 }
@@ -87,7 +86,7 @@ body {
   border: none;
   border-radius: 30px;
   padding: 1vh 1vw;
-  width: 18vw;
+  width: 150vw;
 }
 
 .auth-box {
@@ -104,3 +103,71 @@ body {
   background-color: inherit;
 }
 
+/* Info Section Styling */
+.information {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
+  text-align: center; /* Center the header text */
+}
+
+/* Header Text Styling */
+.information .header a {
+  font-family: 'Kanit', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  margin-bottom: 30px;
+  display: block;
+}
+
+/* Flexbox Container for Rectangles */
+.information > div {
+  display: flex; /* Flexbox for horizontal alignment */
+  flex-wrap: wrap;
+  justify-content: space-around; /* Equal spacing between rectangles */
+  margin-top: 20px; /* Spacing from the header */
+  gap: 200px 50px;
+}
+
+/* Info Container Styling */
+.info-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  margin-bottom: 30px; /* Space between each info-container */
+  width: 30%; /* Consistent width for all containers */
+}
+
+/* Rectangle Styling */
+.info {
+  width: 100%; /* Match container width */
+  height: 200px;
+  background-color: #3498db; /* Blue background */
+  color: white; /* White text */
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 200px; /* Center the text vertically */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  margin-bottom: 15px; /* Space between rectangle and header */
+}
+
+/* Info Header Styling */
+.info-header {
+  font-family: 'Kanit', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px; /* Space between header and detail */
+  text-align: left;
+}
+
+/* Info Detail Styling */
+.info-detail {
+  font-family: 'Kanit', sans-serif;
+  font-size: 16px;
+  color: #666; /* Gray for detail text */
+  text-align: left;
+}
