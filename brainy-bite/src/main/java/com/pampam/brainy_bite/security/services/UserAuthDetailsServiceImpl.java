@@ -1,4 +1,4 @@
-package com.pampam.brainy_bite.services.services;
+package com.pampam.brainy_bite.security.services;
 
 import com.pampam.brainy_bite.models.UserAuth;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.pampam.brainy_bite.services.jwt;
+package com.pampam.brainy_bite.security.jwt;
 
 import java.security.Key;
 import java.util.Date;
@@ -16,7 +16,7 @@ import org.springframework.web.util.WebUtils;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import com.pampam.brainy_bite.services.services.UserAuthDetailsImpl;
+import com.pampam.brainy_bite.security.services.UserAuthDetailsImpl;
 
 @Component
 public class JwtUtils {

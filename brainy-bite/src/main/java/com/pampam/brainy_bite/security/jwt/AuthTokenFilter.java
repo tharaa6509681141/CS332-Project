@@ -1,4 +1,4 @@
-package com.pampam.brainy_bite.services.jwt;
+package com.pampam.brainy_bite.security.jwt;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.pampam.brainy_bite.services.services.UserAuthDetailsServiceImpl;
+import com.pampam.brainy_bite.security.services.UserAuthDetailsServiceImpl;
 
 public class AuthTokenFilter extends  OncePerRequestFilter {
     @Autowired
