@@ -1,4 +1,4 @@
-package com.pampam.brainy_bite.services;
+package com.pampam.brainy_bite.services.services;
 
 import java.util.Collection;
 import java.util.List;
