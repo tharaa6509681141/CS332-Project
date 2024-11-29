@@ -9,28 +9,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
-
 public class ArticlesController {
 
     @Autowired
     ArticlesRepository articlesRepository;
-    @GetMapping(value = "/allArticles")
-    public ResponseEntity<List<articles>> getallArticles (@RequestParam(required = false)String allArticles){
-        try{
-            List<articles> articles = articlesRepository.allArticles();
-            if(articles != null){
-                return new ResponseEntity<>(articles, HttpStatus.OK);
+
+    @GetMapping("/allArticles")
+    public ResponseEntity<List<articles>> getAllArticles() {
+        try {
+            // Fetch all articles using JPA's findAll or a custom method
+            List<articles> articles = articlesRepository.allArticles(); // Ensure this method exists
+
+            // Check if the result is empty instead of null
+            if (articles.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        }
-        catch(Exception e){
+
+            return new ResponseEntity<>(articles, HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
+
