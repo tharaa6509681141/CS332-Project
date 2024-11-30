@@ -122,15 +122,13 @@ body {
     background-color: inherit;
 }
 
-
-/* Info Section Styling */
-.information {
+.header {
   padding: 20px;
-  background-color: #f9f9f9; /* Light gray background */
+  background-color: #f9f9f9;
 }
 
 /* Header Text Styling */
-.information .header a {
+.header a {
   font-family: 'Kanit', sans-serif;
   font-size: 80px;
   font-weight: bold;
@@ -138,22 +136,29 @@ body {
   text-decoration: none;
   margin-bottom: 10px;
   display: block;
+  text-align: center;
 }
 
-.information .header::after {
+.header::after {
     content: '';                /* Creates the line */
-    display: block;             /* Make it behave like a block element */
+    display: flex;             /* Make it behave like a block element */
     width: 80%;                /* Make the line take up the full width */
     height: 4px;                /* Line thickness */
     background-color: black;     /* Line color */
-    margin-top: 5px;           /* Adds space between text and the line */
+     margin: 5px auto 0;           /* Adds space between text and the line */
+}
+
+/* Info Section Styling */
+.information {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
 }
 
 /* Flexbox Container for Rectangles */
 .information > div {
   display: flex; /* Flexbox for horizontal alignment */
   flex-wrap: wrap;
-  justify-content: space-around; /* Equal spacing between rectangles */
+  /*justify-content: space-around; /* Equal spacing between rectangles */
   margin-top: 20px; /* Spacing from the header */
   gap: 20px 50px;
 }
@@ -186,6 +191,8 @@ body {
   height: 200px;                   /* Fixed height to ensure images have the same size */
   object-fit: cover;               /* Ensure the image covers the area without distortion */
   border-radius: 5px;              /* Round the corners of the image */
+  display: block;          /* Removes inline space below the image */
+  background-color: #f0f0f0;
 }
 
 /* Title and description */
