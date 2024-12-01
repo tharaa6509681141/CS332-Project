@@ -31,6 +31,9 @@ public class UserAuth {
     @Size(max = 120)
     private String password;
 
+    @Size(max = 255)
+    private String bio;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -78,6 +81,10 @@ public class UserAuth {
     public void setPassword(@NotBlank @Size(max = 120) String password) {
         this.password = password;
     }
+
+    public @Size(max = 255) String getBio() { return bio; }
+
+    public void setBio(@Size(max = 255) String bio) { this.bio = bio; }
 
     public Set<RoleAuth> getRoles() {
         return roles;
