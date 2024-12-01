@@ -45,5 +45,11 @@ public class bookmarks {
         this.created_at = created_at;
     }
 
+    public bookmarks(String user_id, String article_id, String created_at) {
+        this.user_id = user_id;
+        this.article_id = article_id;
+        this.created_at = created_at;
+    }
+
     public bookmarks(){};
 }

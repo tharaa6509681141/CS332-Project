@@ -23,12 +23,11 @@ public class JDBCarticlesRepository implements ArticlesRepository {
 
     @Override
     public void addBookmark(bookmarks bookmark) {
-        String sql = "INSERT INTO bookmarks (bookmark_id, user_id, article_id, created_at) " +
-                "VALUES (?, ?, ?, CURRENT_DATE())";
+        String sql = "INSERT INTO bookmarks (user_id, article_id, created_at) " +
+                "VALUES (?, ?, CURRENT_DATE())";
 
         try {
             jdbcTemplate.update(sql,
-                    bookmark.getBookmark_id(),  // Bookmark ID
                     bookmark.getUser_id(),      // User ID
                     bookmark.getArticle_id()    // Article ID
             );
