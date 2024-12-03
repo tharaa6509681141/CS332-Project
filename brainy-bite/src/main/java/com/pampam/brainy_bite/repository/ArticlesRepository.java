@@ -9,6 +9,7 @@ public interface ArticlesRepository {
     List<articles> allArticles();
 
     void addBookmark(bookmarks bookmark);
+
     int deleteBookmark(String bookmark);
 
 }
