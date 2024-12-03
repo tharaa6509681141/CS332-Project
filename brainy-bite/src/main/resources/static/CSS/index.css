@@ -39,12 +39,21 @@ body {
   color: black;
   text-decoration: none;
   padding: 14px 16px;
-  border-bottom: 2px solid transparent;
 	transition: all 0.3s ease;
 }
 
-.menu a:hover {
-  border-bottom: 2px solid black;
+.menu a.home-btn {
+  color: black;
+  text-decoration: none;
+  padding: 14px 16px;
+	transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 14px;
+}
+
+.menu a.home-btn:hover {
+  border-bottom: 3px solid #333;
+  padding-bottom: -30px;
 }
 
 .dropdown {
@@ -57,7 +66,7 @@ body {
   border: none;
   outline: none;
   font-family: 'Kanit', sans-serif;
-  padding: 14px 6px;
+  padding: 14px 16px;
   background-color: inherit;
 }
 
@@ -115,6 +124,22 @@ body {
     border: none;
     background-color: inherit;
     padding: 14px 16px;
+}
+
+.nav-signup-signin-btn {
+    display: flex;
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    gap: 10px; /* ระยะห่างระหว่างวงกลมและข้อความ */
+    padding-left: 10px; /* ระยะห่างด้านซ้ายเพิ่มเติม */
+}
+
+.nav-signup-signin-btn::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
 }
 
 .header {
