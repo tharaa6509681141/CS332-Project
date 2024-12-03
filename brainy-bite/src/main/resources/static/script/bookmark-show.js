@@ -9,11 +9,6 @@ fetch("http://localhost:8080/api/bookmark/1")
     .then(data => {
         const userBookmarkContainer = document.getElementById("userbookmark");
 
-        // Clear previous content (if any)
-        userBookmarkContainer.innerHTML = `
-            <h2>My Bookmarks</h2>
-        `;
-
         // Iterate through the bookmarks and display each one
         data.forEach(bookmark => {
             const bookmarkCard = document.createElement("div");
@@ -21,7 +16,7 @@ fetch("http://localhost:8080/api/bookmark/1")
 
             bookmarkCard.innerHTML = `
                 <img src="${bookmark.thumbnail_url}" alt="${bookmark.title}" width="100" height="100">
-                <p>${bookmark.title}</p>
+                <h3>${bookmark.title}</h3>
                 <p>${bookmark.description}</p>
             `;
 
