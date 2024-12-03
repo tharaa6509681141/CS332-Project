@@ -2,6 +2,7 @@ package com.pampam.brainy_bite.controller;
 
 import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
+import com.pampam.brainy_bite.models.user_bookmarks;
 import com.pampam.brainy_bite.repository.ArticlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,6 +51,23 @@ public class ArticlesController {
             return new ResponseEntity<>("Failed to add bookmark: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/bookmark/{user_id}")
+    public ResponseEntity<List<user_bookmarks>> getUserBookmarks(@PathVariable("user_id") String user_id) {
+        try {
+            List<user_bookmarks> bookmarks = articlesRepository.showBookmarks(user_id);
+
+            if (bookmarks.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(bookmarks, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @DeleteMapping("/delete/{bookmark}")
     public ResponseEntity<String> deleteBookmark(@PathVariable("bookmark") String bookmark) {
