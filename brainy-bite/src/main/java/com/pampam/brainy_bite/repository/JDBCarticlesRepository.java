@@ -3,7 +3,9 @@ package com.pampam.brainy_bite.repository;
 import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
+import com.pampam.brainy_bite.models.users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.IncorrectResultSetColumnCountException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,6 +37,17 @@ public class JDBCarticlesRepository implements ArticlesRepository {
     public List<articles> findbyCategory(String category) {
         String q = "SELECT * FROM articles WHERE category = ?";
         return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(articles.class), category);
+    }
+
+    @Override
+    public users userInfo(String user_id) {
+        try {
+            users users = jdbcTemplate.queryForObject("SELECT * FROM users WHERE id=?",
+                    BeanPropertyRowMapper.newInstance(users.class), user_id);
+            return users;
+        }catch (IncorrectResultSizeDataAccessException e) {
+            return null;
+        }
     }
 
     @Override

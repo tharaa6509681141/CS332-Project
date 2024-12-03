@@ -3,6 +3,7 @@ package com.pampam.brainy_bite.controller;
 import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
+import com.pampam.brainy_bite.models.users;
 import com.pampam.brainy_bite.repository.ArticlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -99,6 +100,24 @@ public class ArticlesController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/info/{user_id}")
+    public ResponseEntity<?> showUserInfo(@PathVariable("user_id") String user_id) {
+        try {
+            // Call the method from the repository to fetch user details
+            users userInfo = articlesRepository.userInfo(user_id);
+
+            // Check if the user is found
+            if (userInfo == null) {
+                return new ResponseEntity<>("User not found with id: " + user_id, HttpStatus.NOT_FOUND);
+            }
+
+            return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("An error occurred while fetching user info.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
