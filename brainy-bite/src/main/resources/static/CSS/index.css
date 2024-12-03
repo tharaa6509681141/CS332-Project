@@ -142,6 +142,11 @@ body {
     border-radius: 50%; /* ทำให้เป็นวงกลม */
 }
 
+.auth-box {
+  float: left;
+  overflow: hidden;
+}
+
 .header {
   padding: 20px;
   background-color: #f9f9f9;
@@ -227,3 +232,4 @@ body {
   color: #555;
   text-align: left;
 }
+
