@@ -15,9 +15,9 @@ fetch("http://localhost:8080/api/bookmark/1")
             bookmarkCard.classList.add("bookmark-card");
 
             bookmarkCard.innerHTML = `
-                <img src="${bookmark.thumbnail_url}" alt="${bookmark.title}" width="100" height="100">
-                <h3>${bookmark.title}</h3>
-                <p>${bookmark.description}</p>
+                <div><img src="${bookmark.thumbnail_url}" alt="${bookmark.title}" width="100" height="100"></div>
+                <div><h3>${bookmark.title}</h3>
+                <p>${bookmark.description}</p></div>
             `;
 
             userBookmarkContainer.appendChild(bookmarkCard);
