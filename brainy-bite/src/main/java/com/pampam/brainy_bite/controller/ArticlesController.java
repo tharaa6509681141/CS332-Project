@@ -37,6 +37,40 @@ public class ArticlesController {
         }
     }
 
+    @GetMapping(value = "/article/{search}")
+    public ResponseEntity<List<articles>> findArticle (@PathVariable("search")String search){
+        try{
+            List<articles> articles = articlesRepository.findArticle(search);
+            if(articles != null){
+                return new ResponseEntity<>(articles,HttpStatus.OK);
+            }
+            else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/category/{category}")
+    public ResponseEntity<List<articles>> findbyCategory (@PathVariable("category")String category){
+        try{
+            List<articles> articles = articlesRepository.findbyCategory(category);
+            if(articles != null){
+                return new ResponseEntity<>(articles,HttpStatus.OK);
+            }
+            else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PostMapping("/addBookmark")
     public ResponseEntity<String> addBookmark(@RequestBody bookmarks bookmark) {
         try {

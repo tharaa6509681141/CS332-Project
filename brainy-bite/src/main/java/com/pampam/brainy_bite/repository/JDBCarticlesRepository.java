@@ -26,6 +26,18 @@ public class JDBCarticlesRepository implements ArticlesRepository {
     }
 
     @Override
+    public List<articles> findArticle(String search) {
+        String q = "SELECT * from articles WHERE title LIKE '%"+ search +"%'";
+        return jdbcTemplate.query(q,BeanPropertyRowMapper.newInstance(articles.class));
+    }
+
+    @Override
+    public List<articles> findbyCategory(String category) {
+        String q = "SELECT * FROM articles WHERE category = ?";
+        return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(articles.class), category);
+    }
+
+    @Override
     public void addBookmark(bookmarks bookmark) {
         String sql = "INSERT INTO bookmarks (user_id, article_id, created_at) " +
                 "VALUES (?, ?, CURRENT_DATE())";

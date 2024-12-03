@@ -9,6 +9,8 @@ import java.util.List;
 public interface ArticlesRepository {
 
     List<articles> allArticles();
+    List<articles> findArticle(String search);
+    List<articles> findbyCategory(String category);
 
     void addBookmark(bookmarks bookmark);
 
