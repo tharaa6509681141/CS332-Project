@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/admin.css">
+  <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+  <title>BrainyBite</title>
+</head>
+<body>
+<nav class="navbar">
+
+  <div class="menu">
+    <div class="logo">
+      <a href="#">BrainyBite</a>
+    </div>
+  </div>
+
+  <div class="auth-box">
+    <button class="nav-signup-signin-btn">logout</button>
+  </div>
+  <div></div>
+
+</nav>
+<div class="header">
+  <a href="#">เพิ่มบทความ</a>
+</div>
+
+<div class="frame">
+
+  <div class="details">
+    <div class="articleImage">
+      <p class="text">รูปภาพ :</p>
+      <input id="articleImageInput" type="file" accept="image/png, image/jpeg" />
+      <img id="preview" style="display:none; max-width: 100%; height: auto; margin-top: 10px;" alt="Preview Image" />
+      <script src="script/previewfile.js"></script>
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="articleTitle">
+      <p class="text">ชื่อบทความ :</p>
+      <input id="articleTitleInput" type="text"/>
+    </div>
+    <div class="articleAuthor">
+      <p class="text">ชื่อผู้แต่ง :</p>
+      <input id="articleAuthorInput" type="text" />
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="articleCategory">
+      <p class="text">หมวดหมู่ :</p>
+      <select id="articleCategory">
+        <option value="math">mathematics</option>
+        <option value="bio">biology</option>
+        <option value="chem">chemistry</option>
+        <option value="phy">physic</option>
+        <option value="history">history</option>
+        <option value="language">foreign languages</option>
+        <option value="art">art</option>
+        <option value="another">อื่นๆ</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="articleDescription">
+      <p class="text">รายละเอียด :</p>
+      <input id="articleDescriptionInput" type="text" />
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="articlePDF">
+      <p class="text">ไฟล์เอกสาร :</p>
+      <input id="articlePDFInput" type="file" />
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="button">
+      <button id="confirmButton" class="confirm-button">ยืนยัน</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
