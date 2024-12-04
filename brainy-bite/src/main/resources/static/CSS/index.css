@@ -7,7 +7,6 @@ body {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 .navbar {
@@ -173,6 +172,8 @@ body {
 .information {
   padding: 20px;
   background-color: #f9f9f9; /* Light gray background */
+  display: flex;
+  justify-content: center;
 }
 
 /* Flexbox Container for Rectangles */
@@ -186,12 +187,12 @@ body {
 
 /* Container for all articles */
 .articles-container {
-  display: flex;
-  flex-wrap: wrap;                 /* Allow items to wrap into multiple rows */
+  /*display: flex;
+  flex-wrap: wrap;        */         /* Allow items to wrap into multiple rows */
   justify-content: flex-start;     /* Align items to the left */
   padding: 50px;
   margin: 0;                       /* Ensure no extra margin around the container */
-  width: 100%;                     /* Ensure container takes full width */
+  width: 100vw;                     /* Ensure container takes full width */
 }
 
 /* Each article card */
@@ -204,6 +205,7 @@ body {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 10px;
+  margin: auto;
 }
 
 /* Image inside the article card */
