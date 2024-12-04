@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register Overlay</title>
+    <link rel="stylesheet" href="CSS/authTest.css">
+</head>
+<body>
+<div class="navbar">
+    <button id="auth-button">Login/Register</button>
+    <div id="dropdown-menu" class="dropdown hidden">
+        <a href="#" id="profile-link">Profile</a>
+        <a href="#" id="logout-link">Logout</a>
+    </div>
+</div>
+
+<div id="overlay" class="hidden"> <!-- ซ่อน overlay เริ่มต้น -->
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="modal-title">Login</h2>
+            <button id="close-overlay">&times;</button>
+        </div>
+        <form id="auth-form">
+            <div id="auth-fields">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <button id="switch-auth-mode">Switch to Register</button>
+    </div>
+</div>
+
+<script src="script/authTest.js"></script>
+</body>
+</html>
