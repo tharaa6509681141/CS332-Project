@@ -16,11 +16,11 @@
                 <a class="logo-name" href="#">BrainyBite</a>
             </div>
             <a class="home-btn" href="#home">หน้าหลัก</a>
-            <div class="dropdown">
+            <div class="dropdown-category">
                 <button class="dropbtn">หมวดหมู่
                     <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-category-content">
                     <a href="#">คณิตศาสตร์</a>
                     <a href="#">วิทยาศาสตร์</a>
                     <a href="#">ภาษาต่างประเทศ</a>
@@ -35,6 +35,10 @@
 
         <div class="auth-box">
             <button id="nav-signup-signin-btn">เข้าสู่ระบบ/ลงทะเบียน</button>
+            <div id="dropdown-menu" class="dropdown hidden">
+                <a href="#" id="profile-link">ข้อมูลส่วนตัว</a>
+                <a href="#" id="logout-link">ออกจากระบบ</a>
+            </div>
         </div>
 
     </nav>
@@ -44,6 +48,23 @@
     <div class="information">
         <div id="allArticles" class="articles-container">
 
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden"> <!-- ซ่อน overlay เริ่มต้น -->
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Login</h2>
+                <button id="close-overlay">&times;</button>
+            </div>
+            <form id="auth-form">
+                <div id="auth-fields">
+                    <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+                    <input type="password" id="password" placeholder="รหัสผ่าน" required>
+                </div>
+                <button type="submit">เข้าสู่ระบบ</button>
+            </form>
+            <button id="switch-auth-mode">ลงทะเบียน</button>
         </div>
     </div>
 

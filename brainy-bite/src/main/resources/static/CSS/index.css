@@ -56,12 +56,12 @@ body {
   padding-bottom: -30px;
 }
 
-.dropdown {
+.dropdown-category {
   float: left;
   overflow: hidden;
 }
 
-.dropdown .dropbtn {
+.dropdown-category .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
@@ -70,14 +70,15 @@ body {
   background-color: inherit;
 }
 
-.dropdown-content {
+.dropdown-category-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-category-content a {
   float: none;
   color: black;
   text-decoration: none;
@@ -85,13 +86,13 @@ body {
   transition: all 0.3s ease;
 }
 
-.dropdown-content a:hover {
+.dropdown-category-content a:hover {
   background-color: #ddd;
   border-bottom: none;
 }
 
 
-.dropdown:hover .dropdown-content {
+.dropdown-category:hover .dropdown-category-content {
   display: block;
 }
 
@@ -131,6 +132,7 @@ body {
   align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
   gap: 10px; /* ระยะห่างระหว่างวงกลมและข้อความ */
   padding-left: 10px; /* ระยะห่างด้านซ้ายเพิ่มเติม */
+  cursor: pointer;
 }
 
 #nav-signup-signin-btn::before {
@@ -205,7 +207,6 @@ body {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 10px;
-  margin: auto;
 }
 
 /* Image inside the article card */
@@ -231,3 +232,66 @@ body {
   text-align: left;
 }
 
+
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex; /* ให้แสดงเมื่อไม่มี hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* ให้อยู่เหนือ UI อื่น */
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown a:hover {
+  background: #f0f0f0;
+}
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
