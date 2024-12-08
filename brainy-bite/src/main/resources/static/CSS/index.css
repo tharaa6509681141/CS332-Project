@@ -37,6 +37,12 @@ body {
 
 .logo {
   font-size: 30px;
+  transition: transform 0.3s ease-in-out; /* Apply transition to the transform property */
+}
+
+/* Hover effect for logo */
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .menu a {
@@ -86,7 +92,8 @@ body {
 .search-box {
   width: 30vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Space between input and button */
+  align-items: center; /* Center elements vertically */
 }
 
 .search-box input {
@@ -96,6 +103,19 @@ body {
   border-radius: 30px;
   padding: 1vh 1vw;
   width: 150vw;
+}
+
+.search-button {
+  font-family: 'Kanit', sans-serif;
+        padding: 10px 20px;
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px; /* Space between input and button */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
 .auth-box {

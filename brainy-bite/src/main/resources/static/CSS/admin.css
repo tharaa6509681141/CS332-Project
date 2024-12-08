@@ -38,7 +38,14 @@ body {
 
 .logo {
   font-size: 30px;
+  transition: transform 0.3s ease-in-out; /* Apply transition to the transform property */
 }
+
+/* Hover effect for logo */
+.logo:hover {
+    transform: scale(1.05);
+}
+
 
 .menu a {
   color: black;

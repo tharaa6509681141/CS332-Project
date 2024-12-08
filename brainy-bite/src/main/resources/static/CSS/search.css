@@ -119,6 +119,7 @@ body {
         transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+
 .auth-box {
     width: 35vw;
     display: flex;
@@ -136,114 +137,58 @@ body {
 }
 
 .auth-box button {
-    margin-right: 1.5vw;
+    margin-right: 1vw;
     font-size: 16px;
     font-family: 'Kanit', sans-serif;
     border: none;
     background-color: inherit;
 }
 
-.information {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  max-width: 1000px;
-}
-
-.userInfo-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 30px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  width: 80%;
-}
-
-.userInfo-container img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ccc;
-  margin-right: 20px;
-}
-
-.user-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.user-card h3 {
-  margin: 0;
-  font-size: 24px;
-  color: black;
-}
-
-.user-card p {
-  margin: 0;
-  font-size: 16px;
-  color: black;
-}
-
-/* Style the bookmark container */
-.userbookmark-container {
+#searchResults {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px; /* Space between cards */
-    margin-top: 30px;
-    justify-content: center; /* Center the cards horizontally */
-    max-width: 1500px; /* Expand the container width */
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: flex-start;
+    gap: 50px;
+    margin-top: 50px; /* Add space from the top */
+    margin-left: 100px; /* Add space from the left */
 }
 
-/* Individual bookmark card */
-.bookmark-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 500px; /* Wider card */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+#searchResults > div {
+    width: 30%;                      /* Adjust the width of each article to fit 3 in one row */
+      box-sizing: border-box;          /* Ensure padding and border are included in the width */
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
 }
 
-/* Bookmark image */
-.bookmark-card img {
-    flex-shrink: 0;
-    width: 180px; /* Larger image */
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 3px solid #ddd;
+#searchResults > div img {
+   width: 100%;                     /* Make the image take up the full width of the card */
+     height: 200px;                   /* Fixed height to ensure images have the same size */
+     object-fit: cover;               /* Ensure the image covers the area without distortion */
+     border-radius: 5px;              /* Round the corners of the image */
+     display: block;          /* Removes inline space below the image */
+     background-color: #f0f0f0;
 }
 
-/* Bookmark text content */
-.bookmark-card h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0;
+
+#searchResults > div h2{
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: left;
 }
 
-.bookmark-card p {
-    margin: 8px 0 0;
-    font-size: 1rem;
+#searchResults > div p{
+    font-size: 14px;
     color: #555;
+    text-align: left;
 }
 
-/* Add hover effect */
-.bookmark-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+
+#searchResults > div {
+    cursor: pointer;
 }
+
 

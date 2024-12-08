@@ -13,27 +13,29 @@
 
         <div class="menu">
             <div class="logo">
-                <a href="#">BrainyBite</a>
+                <a href="index.html">BrainyBite</a>
             </div>
-            <a href="#home">หน้าหลัก</a>
+            <a href="index.html">หน้าหลัก</a>
             <div class="dropdown">
                 <button class="dropbtn">หมวดหมู่
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">คณิตศาสตร์</a>
-                    <a href="#">ชีวะวิทยา</a>
-                    <a href="#">เคมี</a>
-                    <a href="#">ฟิสิกส์์</a>
-                    <a href="#">ภาษาต่างประเทศ</a>
-                    <a href="#">ศิลปะ</a>
+                    <a href="category.html?category=math">คณิตศาสตร์</a>
+                    <a href="category.html?category=bio">ชีวะวิทยา</a>
+                    <a href="category.html?category=chem">เคมี</a>
+                    <a href="category.html?category=phy">ฟิสิกส์</a>
+                    <a href="category.html?category=eng">ภาษาต่างประเทศ</a>
+                    <a href="category.html?category=art">ศิลปะ</a>
                 </div>
-            </div>
-        </div>
 
-        <div class="search-box">
-            <input class= "search-bar" type="text" placeholder="ค้นหา...">
-        </div>
+            </div>
+            </div>
+
+        <form id="searchForm" class="search-box">
+            <input class="search-bar" id="searchInput" type="text" placeholder="ค้นหา...">
+            <button type="submit" class="search-button">ค้นหา</button>
+        </form>
 
         <div class="auth-box">
             <button class="nav-signup-signin-btn">เข้าสู่ระบบ/ลงทะเบียน</button>
@@ -41,16 +43,18 @@
         <div></div>
 
     </nav>
+</header>
     <div class="header">
         <a href="#">BrainyBite</a>
     </div>
     <div class="information">
-        <div id="allArticles" class="articles-container">
-        </div>
+        <div id="allArticles" class="articles-container"></div>
     </div>
 
+    <script src="script/search.js"></script>
+    <script src="script/search-result.js"></script>
+    <script src="script/category.js"></script>
     <script src="script/index.js"></script>
 
-</header>
 </body>
 </html>
