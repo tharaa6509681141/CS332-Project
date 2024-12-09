@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="CSS/search.css">
+  <link rel="stylesheet" href="CSS/nav.css">
   <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
   <title>BrainyBite</title>
 </head>
@@ -14,18 +15,18 @@
     <div class="logo">
       <a href="index.html">BrainyBite</a>
     </div>
-    <a href="index.html">หน้าหลัก</a>
-    <div class="dropdown">
+    <a class="home-btn" href="index.html">หน้าหลัก</a>
+    <div class="dropdown-category">
       <button class="dropbtn">หมวดหมู่
         <i class="fa fa-caret-down"></i>
       </button>
-      <div class="dropdown-content">
-        <a href="#">คณิตศาสตร์</a>
-        <a href="#">ชีวะวิทยา</a>
-        <a href="#">เคมี</a>
-        <a href="#">ฟิสิกส์์</a>
-        <a href="#">ภาษาต่างประเทศ</a>
-        <a href="#">ศิลปะ</a>
+      <div class="dropdown-category-content">
+        <a href="category.html?category=math">คณิตศาสตร์</a>
+        <a href="category.html?category=bio">ชีวะวิทยา</a>
+        <a href="category.html?category=chem">เคมี</a>
+        <a href="category.html?category=phy">ฟิสิกส์</a>
+        <a href="category.html?category=eng">ภาษาต่างประเทศ</a>
+        <a href="category.html?category=art">ศิลปะ</a>
       </div>
     </div>
   </div>
@@ -49,6 +50,8 @@
     </div>
   </div>
 </div>
+
+<script src="script/category.js"></script>
 <script src="script/search.js"></script>
 <script src="script/search-result.js"></script>
 </body>
