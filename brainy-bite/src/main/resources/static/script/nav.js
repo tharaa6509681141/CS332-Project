@@ -1,3 +1,28 @@
+/*document.addEventListener("DOMContentLoaded", () => {
+    const profileLink = document.getElementById("profile-link");
+
+    profileLink.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default navigation behavior
+
+        // Example: Fetch user ID from a global `currentUser` object or a backend API.
+        // Replace with your actual implementation for getting the current user ID.
+        const userId = window.currentUser?.id || localStorage.getItem("userId");
+
+        if (!userId) {
+            alert("User ID is missing or not available!");
+            return;
+        }
+
+        localStorage.setItem("userId", userId); // Store user ID in localStorage
+        window.location.href = "user.html"; // Redirect to user.html
+    });
+});
+
+// After successful login or signup
+const userId = data.userId; // Assume `data` contains the logged-in user information
+localStorage.setItem("userId", userId);
+window.currentUser = data; // Optional for easy access */
+
 document.addEventListener("DOMContentLoaded", () => {
     const authButton = document.getElementById("nav-signup-signin-btn");
     const overlay = document.getElementById("overlay");
@@ -9,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutLink = document.getElementById("logout-link");
     const emailField = document.getElementById("email");
     const confirmPasswordField = document.getElementById("confirm-password");
+    const profileLink = document.getElementById("profile-link");
 
     let isRegistering = false;
     let isAuthenticated = false;
@@ -88,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const data = await response.json(); // ข้อมูล response body
+            localStorage.setItem("id", data.id); // Save user ID
             isAuthenticated = true;
 
             // อัปเดต UI ด้วย username
