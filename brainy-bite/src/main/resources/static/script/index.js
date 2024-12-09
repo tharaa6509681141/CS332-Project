@@ -8,6 +8,11 @@ fetch("http://localhost:8080/api/allArticles")
             const articleCard = document.createElement("div");
             articleCard.classList.add("article-card");
 
+            // Add click event to redirect to article-detail.html with article ID
+            articleCard.addEventListener('click', () => {
+                window.location.href = `article-detail.html?articleId=${article.article_id}`; // Corrected URL parameter
+            });
+
             articleCard.innerHTML = `
                 <img src="${article.thumbnail_url}" alt="${article.title}">
                 <h3>${article.title}</h3>

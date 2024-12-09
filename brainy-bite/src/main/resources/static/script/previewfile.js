@@ -1,16 +1,31 @@
-document.getElementById("articleImageInput").addEventListener("change", function (event) {
-    const file = event.target.files[0]; // Get the selected file
-    const preview = document.getElementById("preview");
+// Extract article ID from the URL query string
+const urlParams = new URLSearchParams(window.location.search);
+const articleId = urlParams.get('articleId'); // Make sure the parameter matches
 
-    if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
-      const reader = new FileReader(); // Initialize FileReader
-      reader.onload = function (e) {
-        preview.src = e.target.result; // Set the image source to the loaded data
-        preview.style.display = "block"; // Display the image
-      };
-      reader.readAsDataURL(file); // Read the image file as a data URL
-    } else {
-      alert("Please upload a valid PNG or JPEG image.");
-      preview.style.display = "none"; // Hide the preview if invalid file
-    }
-  });
+// Check if the article ID is valid
+if (articleId) {
+    // Fetch the article details from the backend using the article ID
+    fetch(`http://localhost:8080/api/article-detail/${articleId}`) // Corrected API endpoint
+        .then(response => response.json())
+        .then(data => {
+            const articleDetailsContainer = document.getElementById("articleDetails");
+
+            // Check if the response contains valid article data
+            if (data) {
+                // Display article details
+                articleDetailsContainer.innerHTML = `
+                    <h1>${data.title}</h1>
+                    <img src="${data.thumbnail_url}" alt="${data.title}">
+                    <p>${data.content}</p> <!-- Assuming 'content' is the full article content -->
+                `;
+            } else {
+                articleDetailsContainer.innerHTML = '<p>Article not found.</p>';
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching article details:", error);
+            alert("Error loading article. Please try again later.");
+        });
+} else {
+    alert("No article ID provided in the URL.");
+}

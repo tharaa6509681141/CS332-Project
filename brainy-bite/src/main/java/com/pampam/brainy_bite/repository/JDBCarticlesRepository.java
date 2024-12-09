@@ -5,6 +5,7 @@ import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
 import com.pampam.brainy_bite.models.users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.IncorrectResultSetColumnCountException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -38,6 +39,17 @@ public class JDBCarticlesRepository implements ArticlesRepository {
         String q = "SELECT * FROM articles WHERE category = ?";
         return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(articles.class), category);
     }
+
+    public articles infoarticle(String article_id) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM articles WHERE article_id = ?",
+                    new BeanPropertyRowMapper<>(articles.class), article_id);
+        } catch (DataAccessException e) {
+            return null; // handle exception appropriately
+        }
+    }
+
+
 
     @Override
     public users userInfo(String user_id) {

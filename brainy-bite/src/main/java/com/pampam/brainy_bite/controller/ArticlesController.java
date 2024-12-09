@@ -6,6 +6,7 @@ import com.pampam.brainy_bite.models.user_bookmarks;
 import com.pampam.brainy_bite.models.users;
 import com.pampam.brainy_bite.repository.ArticlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +72,22 @@ public class ArticlesController {
             return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/article-detail/{article_id}")
+    public ResponseEntity<?> infoarticle(@PathVariable("article_id") String article_id) {
+        try {
+            articles articles = articlesRepository.infoarticle(article_id);
+            if (articles != null) {
+                return new ResponseEntity<>(articles, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Article not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Database error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PostMapping("/addBookmark")
     public ResponseEntity<String> addBookmark(@RequestBody bookmarks bookmark) {

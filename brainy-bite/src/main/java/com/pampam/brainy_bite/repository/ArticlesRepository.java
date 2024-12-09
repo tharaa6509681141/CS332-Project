@@ -12,12 +12,10 @@ public interface ArticlesRepository {
     List<articles> allArticles();
     List<articles> findArticle(String search);
     List<articles> findbyCategory(String category);
-
+    articles infoarticle(String articles);
     users userInfo(String user_id);
     void addBookmark(bookmarks bookmark);
-
     int deleteBookmark(String bookmark);
-
     List<user_bookmarks> showBookmarks(String user_id);
 
 }
