@@ -25,6 +25,11 @@ window.currentUser = data; // Optional for easy access */
 
 document.addEventListener("DOMContentLoaded", () => {
     const authButton = document.getElementById("nav-signup-signin-btn");
+    if (!authButton) {
+        console.warn("Auth button not found in the DOM.");
+        return; // Exit early if the button does not exist
+    }
+
     const overlay = document.getElementById("overlay");
     const closeOverlay = document.getElementById("close-overlay");
     const switchAuthMode = document.getElementById("switch-auth-mode");
@@ -39,25 +44,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let isRegistering = false;
     let isAuthenticated = false;
 
-    const toggleOverlay = () => overlay.classList.toggle("overlay");
+    const toggleOverlay = () => overlay?.classList.toggle("overlay");
     const savedUsername = localStorage.getItem("username");
-        const savedAuthState = localStorage.getItem("isAuthenticated");
+    const savedAuthState = localStorage.getItem("isAuthenticated");
 
-        if (savedAuthState === "true" && savedUsername) {
-            authButton.textContent = savedUsername; // Display username
-            isAuthenticated = true; // Restore authentication state
-        }
-
+    if (savedAuthState === "true" && savedUsername) {
+        authButton.textContent = savedUsername;
+        isAuthenticated = true;
+    }
 
     authButton.addEventListener("click", () => {
         if (isAuthenticated) {
-            dropdownMenu.classList.toggle("hidden");
+            dropdownMenu?.classList.toggle("hidden");
         } else {
             toggleOverlay();
         }
     });
 
-    closeOverlay.addEventListener("click", toggleOverlay);
+    closeOverlay?.addEventListener("click", toggleOverlay);
 
     switchAuthMode.addEventListener("click", () => {
         isRegistering = !isRegistering;
