@@ -3,8 +3,10 @@ package com.pampam.brainy_bite.controller;
 import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
+import com.pampam.brainy_bite.models.users;
 import com.pampam.brainy_bite.repository.ArticlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +73,22 @@ public class ArticlesController {
         }
     }
 
+    @GetMapping("/article-detail/{article_id}")
+    public ResponseEntity<?> infoarticle(@PathVariable("article_id") String article_id) {
+        try {
+            articles articles = articlesRepository.infoarticle(article_id);
+            if (articles != null) {
+                return new ResponseEntity<>(articles, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Article not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Database error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
     @PostMapping("/addBookmark")
     public ResponseEntity<String> addBookmark(@RequestBody bookmarks bookmark) {
         try {
@@ -99,6 +117,24 @@ public class ArticlesController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/info/{user_id}")
+    public ResponseEntity<?> showUserInfo(@PathVariable("user_id") String user_id) {
+        try {
+            // Call the method from the repository to fetch user details
+            users userInfo = articlesRepository.userInfo(user_id);
+
+            // Check if the user is found
+            if (userInfo == null) {
+                return new ResponseEntity<>("User not found with id: " + user_id, HttpStatus.NOT_FOUND);
+            }
+
+            return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("An error occurred while fetching user info.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

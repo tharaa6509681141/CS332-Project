@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/user.css">
+  <link rel="stylesheet" href="CSS/nav.css">
+  <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+  <title>BrainyBite</title>
+</head>
+<body>
+<nav class="navbar">
+
+  <div class="menu">
+    <div class="logo">
+      <a href="index.html">BrainyBite</a>
+    </div>
+    <a class="home-btn" href="index.html">หน้าหลัก</a>
+    <div class="dropdown-category">
+      <button class="dropbtn">หมวดหมู่
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-category-content">
+        <a href="category.html?category=math">คณิตศาสตร์</a>
+        <a href="category.html?category=bio">ชีวะวิทยา</a>
+        <a href="category.html?category=chem">เคมี</a>
+        <a href="category.html?category=phy">ฟิสิกส์</a>
+        <a href="category.html?category=eng">ภาษาต่างประเทศ</a>
+        <a href="category.html?category=art">ศิลปะ</a>
+      </div>
+    </div>
+  </div>
+
+  <form id="searchForm" class="search-box">
+    <input class="search-bar" id="searchInput" type="text" placeholder="ค้นหา...">
+    <button type="submit" class="search-button">ค้นหา</button>
+  </form>
+
+  <div class="auth-box">
+    <button id="nav-signup-signin-btn">เข้าสู่ระบบ</button>
+    <div id="dropdown-menu" class="dropdown hidden">
+      <a href="user.html" id="profile-link">ข้อมูลส่วนตัว</a>
+      <a href="#" id="logout-link">ออกจากระบบ</a>
+    </div>
+  </div>
+  <div></div>
+</nav>
+
+<div class="information">
+  <div id="userinfo" class="userInfo-container"></div>
+  <script src="script/userInfo.js"></script>
+
+  <h2>My Bookmarks</h2>
+  <div id="userbookmark" class="userbookmark-container">
+    <p class="no-bookmark-message">No bookmarks found. Start adding your favorite content!</p>
+  </div>
+
+  <script src="script/nav.js"></script>
+  <script src="script/bookmark-show.js"></script>
+  <script src="script/search.js"></script>
+</div>
+</body>
+</html>
