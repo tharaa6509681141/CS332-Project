@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // อัปเดต UI ด้วย username
             authButton.textContent = data.username;
+            window.location.reload();
 
             // ปิด overlay
             toggleOverlay();
@@ -155,8 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch("/api/auth/signout", {
             method: "POST",
             credentials: "include", // Include cookie
-        }).catch(() => alert("Logout failed!"));
+        })
+        .then(() => {
+            // Reload the page after successful logout
+            window.location.reload();
+        })
+        .catch(() => {
+            alert("Logout failed!");
+            // Optional: Reload the page even if the logout request fails
+            window.location.reload();
+        });
     });
-
-
 });

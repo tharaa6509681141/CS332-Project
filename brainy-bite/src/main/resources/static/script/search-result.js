@@ -25,6 +25,7 @@ function fetchArticles(searchTerm) {
 
 // Function to display articles
 function displayArticles(articles) {
+    console.log('Fetched Articles:', articles); // Debug: Log fetched articles
     const searchResultsDiv = document.getElementById('searchResults');
     searchResultsDiv.innerHTML = ''; // Clear previous results
 
@@ -32,29 +33,33 @@ function displayArticles(articles) {
         searchResultsDiv.textContent = 'No articles found.';
     } else {
         articles.forEach(article => {
-            const articleDiv = document.createElement('div');
-            articleDiv.classList.add('article'); // Add a class for styling if needed
+            if (!article.id && !article.article_id) {
+                console.warn("Skipping article with missing ID:", article);
+                return; // Skip articles without an ID
+            }
 
-            // Create and set up elements for the article display
+            const articleDiv = document.createElement('div');
+            articleDiv.classList.add('article');
+
             const img = document.createElement('img');
-            img.src = article.thumbnail_url; // Assuming `pic` contains the URL for the article image
-            img.alt = article.title;
+            img.src = article.thumbnail_url || 'default-thumbnail.jpg'; // Fallback thumbnail
+            img.alt = article.title || 'Article Image';
             articleDiv.appendChild(img);
 
             const title = document.createElement('h2');
-            title.textContent = article.title;
+            title.textContent = article.title || 'Untitled';
             articleDiv.appendChild(title);
 
             const detail = document.createElement('p');
-            detail.textContent = article.description;
+            detail.textContent = article.description || 'No description available.';
             articleDiv.appendChild(detail);
 
-            // Add click event listener to redirect to article detail page
+            // Navigate on click
+            const articleId = article.id || article.article_id;
             articleDiv.addEventListener('click', () => {
-                window.location.href = `http://localhost:8080/article-detail.html?articleId=${article.id}`;
+                window.location.href = `article-detail.html?articleId=${articleId}`;
             });
 
-            // Append the articleDiv to the searchResultsDiv
             searchResultsDiv.appendChild(articleDiv);
         });
     }

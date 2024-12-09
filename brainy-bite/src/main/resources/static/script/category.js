@@ -33,6 +33,7 @@ function fetchArticlesByCategory(category) {
 }
 
 // Function to display articles on the page
+// Function to display articles on the page
 function displayArticles(articles) {
     const articlesContainer = document.getElementById('allArticles');
     articlesContainer.innerHTML = ''; // Clear previous results
@@ -44,23 +45,39 @@ function displayArticles(articles) {
             const articleDiv = document.createElement('div');
             articleDiv.classList.add('article');
 
+            // Article image
             const img = document.createElement('img');
-            img.src = article.thumbnail_url; // Assuming `pic` contains the URL for the article image
-            img.alt = article.title;
+            img.src = article.thumbnail_url || 'default-thumbnail.jpg'; // Fallback for missing image
+            img.alt = article.title || 'Article Image';
             articleDiv.appendChild(img);
 
+            // Article title
             const title = document.createElement('h3');
-            title.textContent = article.title;  // Assuming 'title' is a property of article
+            title.textContent = article.title || 'Untitled';
             articleDiv.appendChild(title);
 
+            // Article description
             const description = document.createElement('p');
-            description.textContent = article.description;
+            description.textContent = article.description || 'No description available.';
             articleDiv.appendChild(description);
 
+            // Add click event listener for navigation
+            const articleId = article.id || article.article_id; // Adjust based on your API response
+            articleDiv.addEventListener('click', () => {
+                if (articleId) {
+                    window.location.href = `article-detail.html?articleId=${articleId}`;
+                } else {
+                    console.error("Article ID is missing:", article);
+                    alert("Unable to navigate: Article ID is missing.");
+                }
+            });
+
+            // Append article div to the container
             articlesContainer.appendChild(articleDiv);
         });
     }
 }
+
 
 // Entry point for page load
 window.onload = function () {

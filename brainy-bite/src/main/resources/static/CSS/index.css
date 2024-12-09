@@ -234,11 +234,22 @@ body {
 
 /* Bookmark icon styling */
 .bookmark-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin:auto;
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    margin-left: 10px; /* Space between title and icon */
+    margin-top:10px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+.bookmark-icon.hidden {
+    visibility: hidden; /* Keep the space occupied but hide the icon */
+}
+
+.bookmark-icon.animate {
+    transform: scale(1.2); /* Slightly enlarge */
+    opacity: 0.8; /* Add a subtle fade effect */
+}
+
 
 .upper{
     display: flex;
