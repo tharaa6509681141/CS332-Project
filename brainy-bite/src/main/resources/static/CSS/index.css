@@ -3,7 +3,7 @@
 }
 
 /* Body styling */
-body {
+/*body {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
@@ -115,7 +115,7 @@ body {
   width: 35vw;
   display: flex;
   justify-content: flex-end;
-  align-items: center; /* Ensure vertical centering of the button and circle */
+  align-items: center; 
 }
 
 .auth-box button {
@@ -129,9 +129,9 @@ body {
 
 #nav-signup-signin-btn {
   display: flex;
-  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
-  gap: 10px; /* ระยะห่างระหว่างวงกลมและข้อความ */
-  padding-left: 10px; /* ระยะห่างด้านซ้ายเพิ่มเติม */
+  align-items: center; 
+  gap: 10px; 
+  padding-left: 10px;
   cursor: pointer;
 }
 
@@ -141,8 +141,8 @@ body {
   width: 20px;
   height: 20px;
   background-color: gray;
-  border-radius: 50%; /* ทำให้เป็นวงกลม */
-}
+  border-radius: 50%;
+}*/
 
 .header {
   padding: 20px;
@@ -162,18 +162,18 @@ body {
 }
 
 .header::after {
-    content: '';                /* Creates the line */
-    display: flex;             /* Make it behave like a block element */
-    width: 80%;                /* Make the line take up the full width */
-    height: 4px;                /* Line thickness */
-    background-color: black;     /* Line color */
-    margin: 5px auto 0;           /* Adds space between text and the line */
+    content: '';                
+    display: flex;             
+    width: 80%;                
+    height: 4px;                
+    background-color: black;    
+    margin: 5px auto 0;     
 }
 
 /* Info Section Styling */
 .information {
   padding: 20px;
-  background-color: #f9f9f9; /* Light gray background */
+  background-color: #f9f9f9; 
   display: flex;
   justify-content: center;
 }
