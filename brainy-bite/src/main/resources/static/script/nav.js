@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let isAuthenticated = false;
 
     const toggleOverlay = () => overlay.classList.toggle("overlay");
+    const savedUsername = localStorage.getItem("username");
+        const savedAuthState = localStorage.getItem("isAuthenticated");
+
+        if (savedAuthState === "true" && savedUsername) {
+            authButton.textContent = savedUsername; // Display username
+            isAuthenticated = true; // Restore authentication state
+        }
+
 
     authButton.addEventListener("click", () => {
         if (isAuthenticated) {
@@ -115,7 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json(); // ข้อมูล response body
             localStorage.setItem("id", data.id); // Save user ID
-            isAuthenticated = true;
+            localStorage.setItem("username", data.username); // Save username
+            localStorage.setItem("isAuthenticated", "true"); // Save authentication state
+
 
             // อัปเดต UI ด้วย username
             authButton.textContent = data.username;
@@ -128,16 +138,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     logoutLink.addEventListener("click", () => {
-        // Reset ค่า UI
+        // Reset UI
         isAuthenticated = false;
-        authButton.textContent = "เข้าสู่ระบบ/ลงทะเบียน";
+        authButton.textContent = "เข้าสู่ระบบ";
         dropdownMenu.classList.add("hidden");
 
-        // ลบ cookie โดยส่งคำขอไปยัง server
+        // Clear localStorage
+        localStorage.removeItem("username");
+        localStorage.removeItem("isAuthenticated");
+
+        // Send a logout request to the server
         fetch("/api/auth/signout", {
             method: "POST",
-            credentials: "include", // ส่ง cookie ไปด้วย
+            credentials: "include", // Include cookie
         }).catch(() => alert("Logout failed!"));
     });
+
 
 });
