@@ -16,7 +16,11 @@ if (articleId) {
                 articleDetailsContainer.innerHTML = `
                     <h1>${data.title}</h1>
                     <img src="${data.thumbnail_url}" alt="${data.title}">
-                    <p>${data.content}</p> <!-- Assuming 'content' is the full article content -->
+                    <embed class="pdf"
+                                src="${data.article_url}"
+                                width="800"
+                                height="500"/>
+
                 `;
             } else {
                 articleDetailsContainer.innerHTML = '<p>Article not found.</p>';

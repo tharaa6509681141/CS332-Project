@@ -292,7 +292,7 @@ body {
   #close-overlay {
       position: absolute; /* Position inside the modal */
       top: 10px; /* Space from the top */
-      right: 10px; /* Space from the right */
+      right: 23px; /* Space from the right */
       background-color: transparent;
       border: none;
       font-size: 30px; /* Adjust size as needed */

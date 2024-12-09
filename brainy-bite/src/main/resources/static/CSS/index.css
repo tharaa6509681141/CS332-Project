@@ -203,10 +203,12 @@ body {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 10px;
+  position: relative;
 }
 
+
 /* Image inside the article card */
-.article-card img {
+.article-card img.thumbnail{
   width: 100%;                     /* Make the image take up the full width of the card */
   height: 200px;                   /* Fixed height to ensure images have the same size */
   object-fit: cover;               /* Ensure the image covers the area without distortion */
@@ -214,12 +216,33 @@ body {
   display: block;          /* Removes inline space below the image */
   background-color: #f0f0f0;
 }
-
-/* Title and description */
+/* Article title styling */
 .article-card h3 {
-  font-size: 18px;
-  margin: 10px 0;
-  text-align: left;
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: left;
+    display: inline-block; /* Ensures it doesn't create extra space */
+    flex-grow: 1; /* Makes the title take available space */
+}
+
+/* Flex container for title and bookmark */
+.article-card .article-title {
+    display: flex;              /* Align content horizontally */
+    justify-content: space-between; /* Title on the left, icon on the right */
+    align-items: center;        /* Center vertically */
+}
+
+/* Bookmark icon styling */
+.bookmark-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin:auto;
+}
+
+.upper{
+    display: flex;
+    justify-content:space-between;
 }
 
 .article-card p {
@@ -227,4 +250,6 @@ body {
   color: #555;
   text-align: left;
 }
+
+
 

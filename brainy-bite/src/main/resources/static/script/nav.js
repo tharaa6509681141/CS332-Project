@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     switchAuthMode.addEventListener("click", () => {
         isRegistering = !isRegistering;
-        modalTitle.textContent = isRegistering ? "Register" : "Login";
+        modalTitle.textContent = isRegistering ? "ลงทะเบียน" : "เข้าสู่ระบบ";
         switchAuthMode.textContent = isRegistering
-            ? "สลับไปเข้าสู่ระบบ"
-            : "สลับไปลงทะเบียน";
+            ? "เข้าสู่ระบบ"
+            : "ลงทะเบียน";
 
         // ซ่อน/แสดงช่อง email และ confirm password
         emailField.classList.toggle("hidden", !isRegistering);
