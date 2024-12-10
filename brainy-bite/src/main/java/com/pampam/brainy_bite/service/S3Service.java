@@ -2,6 +2,8 @@ package com.pampam.brainy_bite.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +28,19 @@ public class S3Service {
     public void uploadFile(String objectName, MultipartFile file) throws IOException {
         var putObjectResult = s3client.putObject(bucketName, objectName, file.getInputStream(), null);
         log.info(putObjectResult.getMetadata());
+    }
+
+    public String uploadFileAndReturnUrl(String objectName, MultipartFile file) throws IOException {
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentLength(file.getSize());
+        metadata.setContentType(file.getContentType()); // เช่น application/pdf หรือ image/jpeg
+
+        // อัปโหลดไฟล์ไปยัง S3
+        PutObjectRequest request = new PutObjectRequest(bucketName, objectName, file.getInputStream(), metadata);
+        s3client.putObject(request);
+
+        // Return the file URL
+        return s3client.getUrl(bucketName, objectName).toString();
     }
 
     public S3Object getFile(String objectName) {
