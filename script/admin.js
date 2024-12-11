@@ -32,6 +32,7 @@ document.getElementById("confirmButton").addEventListener("click", function () {
     const formdata = new FormData();
     const fileInput = document.getElementById("articlePDFInput");
     const imageInput = document.getElementById("articleImageInput");
+    const author = localStorage.getItem("username");
 
     // Append selected files
     formdata.append("pdfFile", fileInput.files[0]);
@@ -39,7 +40,8 @@ document.getElementById("confirmButton").addEventListener("click", function () {
 
     // Append other data
     formdata.append("data", JSON.stringify({
-        "author": document.getElementById("articleAuthorInput").value,
+        //"author": document.getElementById("articleAuthorInput").value,
+        "author": author,
         "category": document.getElementById("articleCategory").value,
         "title": document.getElementById("articleTitleInput").value,
         "description": document.getElementById("articleDescriptionInput").value,
