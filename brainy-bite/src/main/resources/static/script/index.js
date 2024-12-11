@@ -15,15 +15,20 @@ async function loadArticles() {
         const loggedIn = isUserLoggedIn(); // Check if the user is logged in
         console.log("User Logged In:", loggedIn); // Debugging output
 
-        // Retrieve bookmark states from localStorage
-        const bookmarkStates = JSON.parse(localStorage.getItem("bookmarkedArticles")) || {};
+        const userId = localStorage.getItem("id");
 
-        data.forEach(article => {
+        // Retrieve bookmark states from localStorage
+        //const bookmarkStates = JSON.parse(localStorage.getItem("bookmarkedArticles")) || {};
+
+        data.forEach(async article => {
             const articleCard = document.createElement("div");
             articleCard.classList.add("article-card");
 
             // Determine the bookmark state for the article
-            const isBookmarked = bookmarkStates[article.article_id] || false;
+            //const isBookmarked = bookmarkStates[article.article_id] || false;
+
+            var isBookmarked = await checkBookmarkStatus(userId, article.article_id);
+
 
             // Insert the article content
             articleCard.innerHTML = `
@@ -49,7 +54,10 @@ async function loadArticles() {
             // Add click event to the bookmark icon
             const bookmarkIcon = articleCard.querySelector(".bookmark-icon");
             if (bookmarkIcon) {
-                bookmarkIcon.addEventListener("click", (event) => handleBookmarkClick(event, article.article_id, bookmarkIcon));
+                bookmarkIcon.addEventListener("click", (event) => {
+                    event.stopPropagation(); // ป้องกันไม่ให้เกิด event ที่ซ้อนกัน
+                    handleBookmarkClick(event, article.article_id, bookmarkIcon);
+                });
             }
 
             // Append the article card to the articles container
@@ -75,11 +83,11 @@ async function handleBookmarkClick(event, articleId, bookmarkIcon) {
     try {
         const currentState = await checkBookmarkStatus(userId, articleId);
 
-        if (currentState === 200) {
+        if (currentState == true) {
             // Already bookmarked, remove it
             bookmarkIcon.src = "pic/bookmark.png";
             await deleteBookmark(articleId);
-        } else if (currentState === 404) {
+        } else if (currentState == false) {
             // Not bookmarked, add it
             await addBookmark(articleId);
             bookmarkIcon.src = "pic/bookmark-yellow.png";
@@ -97,7 +105,12 @@ async function handleBookmarkClick(event, articleId, bookmarkIcon) {
 async function checkBookmarkStatus(userId, articleId) {
     try {
         const response = await fetch(`/api/bookmark/${userId}/${articleId}`, { method: "GET" });
-        return response.ok ? 200 : 404;
+        if (!response.ok) {
+            return false; // ไม่เจอข้อมูลถือว่าไม่ bookmark
+        } else {
+            return true;
+        }
+
     } catch (error) {
         console.error("Error checking bookmark status", error);
         throw error;
@@ -128,6 +141,10 @@ async function addBookmark(articleId) {
 // Remove a bookmark (DELETE request)
 async function deleteBookmark(articleId) {
     const userId = localStorage.getItem("id");
+    if (!userId) {
+        console.error("User ID not found in localStorage.");
+        return;
+    }
 
     try {
         // Fetch the bookmark ID first
@@ -137,6 +154,9 @@ async function deleteBookmark(articleId) {
         }
 
         const data = await response.json();
+        if (!data.bookmark_id) {
+            throw new Error("Invalid response: bookmark_id is missing.");
+        }
         const bookmarkId = data.bookmark_id;
 
         // Delete the bookmark
@@ -148,9 +168,10 @@ async function deleteBookmark(articleId) {
         console.log("Bookmark deleted successfully.");
     } catch (error) {
         console.error("Error while deleting bookmark:", error);
-        throw error;
+        alert("Failed to delete bookmark. Please try again later.");
     }
 }
 
+
 // Initialize the application
-loadArticles();
+loadArticles(); 

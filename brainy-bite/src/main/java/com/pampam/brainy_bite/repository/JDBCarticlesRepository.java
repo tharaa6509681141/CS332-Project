@@ -101,12 +101,16 @@ public class JDBCarticlesRepository implements ArticlesRepository {
     }
 
     @Override
-    public user_bookmarks findBookmarkByUserIDandArticleID(String user_id, String articel_id) {
+    public bookmarks findBookmarkByUserIDandArticleID(String user_id, String articel_id) {
         try {
-            user_bookmarks userBookmarks = jdbcTemplate.queryForObject("SELECT * FROM bookmarks where user_id = ? " +
+            /*user_bookmarks userBookmarks = jdbcTemplate.queryForObject("SELECT * FROM bookmarks where user_id = ? " +
                     "and article_id = ?;",
                     BeanPropertyRowMapper.newInstance(user_bookmarks.class), user_id, articel_id);
-            return userBookmarks;
+            return userBookmarks;*/
+            bookmarks _bookmarks = jdbcTemplate.queryForObject("SELECT * FROM bookmarks where user_id = ? " +
+                    "and article_id = ?;",
+                    BeanPropertyRowMapper.newInstance(bookmarks.class), user_id, articel_id);
+            return _bookmarks;
         } catch (IncorrectResultSizeDataAccessException e) {
             return null;
         }

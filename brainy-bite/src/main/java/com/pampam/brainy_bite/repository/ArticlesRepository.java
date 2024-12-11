@@ -18,6 +18,6 @@ public interface ArticlesRepository {
     void addBookmark(bookmarks bookmark);
     int deleteBookmark(String bookmark);
     List<user_bookmarks> showBookmarks(String user_id);
-    user_bookmarks findBookmarkByUserIDandArticleID(String user_id, String articel_id);
+    bookmarks findBookmarkByUserIDandArticleID(String user_id, String articel_id);
 
 }
