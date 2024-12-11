@@ -48,5 +48,5 @@ fetch(`http://localhost:8080/api/bookmark/${userId}`)
     })
     .catch(error => {
         console.error("Error loading bookmarks:", error);
-        alert("Error loading bookmarks. Please try again later.");
+        //alert("Error loading bookmarks. Please try again later.");
     });
