@@ -4,7 +4,6 @@ import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
 import com.pampam.brainy_bite.models.users;
-import com.pampam.brainy_bite.payload.request.BookmarkCheckRequest;
 
 import java.util.List;
 

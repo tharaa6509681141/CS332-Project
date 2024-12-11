@@ -4,7 +4,6 @@ import com.pampam.brainy_bite.models.articles;
 import com.pampam.brainy_bite.models.bookmarks;
 import com.pampam.brainy_bite.models.user_bookmarks;
 import com.pampam.brainy_bite.models.users;
-import com.pampam.brainy_bite.payload.request.BookmarkCheckRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -13,8 +12,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -103,10 +100,6 @@ public class JDBCarticlesRepository implements ArticlesRepository {
     @Override
     public bookmarks findBookmarkByUserIDandArticleID(String user_id, String articel_id) {
         try {
-            /*user_bookmarks userBookmarks = jdbcTemplate.queryForObject("SELECT * FROM bookmarks where user_id = ? " +
-                    "and article_id = ?;",
-                    BeanPropertyRowMapper.newInstance(user_bookmarks.class), user_id, articel_id);
-            return userBookmarks;*/
             bookmarks _bookmarks = jdbcTemplate.queryForObject("SELECT * FROM bookmarks where user_id = ? " +
                     "and article_id = ?;",
                     BeanPropertyRowMapper.newInstance(bookmarks.class), user_id, articel_id);
@@ -115,6 +108,4 @@ public class JDBCarticlesRepository implements ArticlesRepository {
             return null;
         }
     }
-
-
 }
