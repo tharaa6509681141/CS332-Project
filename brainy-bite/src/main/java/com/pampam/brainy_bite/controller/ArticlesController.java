@@ -156,5 +156,21 @@ public class ArticlesController {
         }
     }
 
+    @GetMapping("/bookmark/{user_id}/{article_id}")
+    public ResponseEntity<?> findBookmarkByUserIDandArticelID(@PathVariable("user_id") String user_id,
+                                                                   @PathVariable("article_id") String article_id) {
+        try {
+            user_bookmarks userBookmarks = articlesRepository.findBookmarkByUserIDandArticleID(user_id, article_id);
+            if (userBookmarks == null) {
+                return new ResponseEntity<>("non bookmark", HttpStatus.NOT_FOUND);
+            }
+
+            return new ResponseEntity<>(userBookmarks, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("An error occurred while fetching user info", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
 
