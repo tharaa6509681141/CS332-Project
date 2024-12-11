@@ -50,8 +50,6 @@ public class JDBCarticlesRepository implements ArticlesRepository {
         }
     }
 
-
-
     @Override
     public users userInfo(String user_id) {
         try {
