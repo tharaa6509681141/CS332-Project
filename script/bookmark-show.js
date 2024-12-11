@@ -4,7 +4,7 @@ const userId = localStorage.getItem("id");
 if (!userId) {
     alert("No user ID found. Please log in again.");
     window.location.href = "login.html"; // Redirect to login page if user ID is missing
-    return;
+
 }
 
 // Fetch user bookmarks from the backend
