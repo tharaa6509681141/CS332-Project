@@ -4,7 +4,6 @@ const userId = localStorage.getItem("id");
 if (!userId) {
     alert("No user ID found. Please log in again.");
     window.location.href = "login.html"; // Redirect to login page if user ID is missing
-
 }
 
 // Fetch user bookmarks from the backend
@@ -36,17 +35,30 @@ fetch(`http://localhost:8080/api/bookmark/${userId}`)
             bookmarkCard.classList.add("bookmark-card");
 
             bookmarkCard.innerHTML = `
-                <div><img src="${bookmark.thumbnail_url}" alt="${bookmark.title}" width="100" height="100"></div>
-                <div>
-                    <h3>${bookmark.title}</h3>
+                <div class="thumbnail">
+                    <img src="${bookmark.thumbnail_url}" alt="${bookmark.title}" width="100" height="100">
+                </div>
+                <div class="bookmark-details">
+                    <h3 class="article-title">${bookmark.title}</h3>
                     <p>${bookmark.description}</p>
                 </div>
             `;
+
+            // Add event listener for thumbnail click
+            bookmarkCard.querySelector(".thumbnail img").addEventListener("click", () => {
+                window.location.href = `article-detail.html?articleId=${bookmark.article_id}`;
+            });
+
+            // Add event listener for title click
+            bookmarkCard.querySelector(".article-title").addEventListener("click", () => {
+                window.location.href = `article-detail.html?articleId=${bookmark.article_id}`;
+            });
 
             userBookmarkContainer.appendChild(bookmarkCard);
         });
     })
     .catch(error => {
         console.error("Error loading bookmarks:", error);
-        //alert("Error loading bookmarks. Please try again later.");
+        const userBookmarkContainer = document.getElementById("userbookmark");
+        userBookmarkContainer.innerHTML = '<p class="error-message">Error loading bookmarks. Please try again later.</p>';
     });
