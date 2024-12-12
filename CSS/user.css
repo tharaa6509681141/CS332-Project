@@ -116,6 +116,10 @@ body {
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+.bookmark-card h3, .bookmark-card img:hover {
+    cursor: pointer;
+}
+
 .no-bookmark-message {
     font-size: 1.2em;
     color: #555;

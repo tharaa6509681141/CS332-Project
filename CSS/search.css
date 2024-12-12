@@ -16,7 +16,7 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 50px;
-    margin-top: 50px; /* Add space from the top */
+    margin-top: 100px; /* Add space from the top */
     margin-left: 100px; /* Add space from the left */
 }
 
