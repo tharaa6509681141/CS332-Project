@@ -7,7 +7,7 @@ if (!userId) {
 }
 
 // Fetch user bookmarks from the backend
-fetch(`http://localhost:8080/api/bookmark/${userId}`)
+fetch(`/api/bookmark/${userId}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

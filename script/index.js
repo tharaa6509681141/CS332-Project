@@ -8,7 +8,7 @@ function isUserLoggedIn() {
 // Load and render all articles
 async function loadArticles() {
     try {
-        const response = await fetch("http://localhost:8080/api/allArticles");
+        const response = await fetch('/api/allArticles');
         const data = await response.json();
         const articlesContainer = document.getElementById("allArticles");
 
@@ -16,9 +16,6 @@ async function loadArticles() {
         console.log("User Logged In:", loggedIn); // Debugging output
 
         const userId = localStorage.getItem("id");
-
-        // Retrieve bookmark states from localStorage
-        //const bookmarkStates = JSON.parse(localStorage.getItem("bookmarkedArticles")) || {};
 
         data.forEach(async article => {
             const articleCard = document.createElement("div");
