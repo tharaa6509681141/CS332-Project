@@ -26,7 +26,6 @@ document.getElementById("articleImageInput").addEventListener("change", function
     }
 });
 
-
 // Add event listener for the confirm button to submit the form
 document.getElementById("confirmButton").addEventListener("click", function () {
     const formdata = new FormData();
@@ -40,7 +39,6 @@ document.getElementById("confirmButton").addEventListener("click", function () {
 
     // Append other data
     formdata.append("data", JSON.stringify({
-        //"author": document.getElementById("articleAuthorInput").value,
         "author": author,
         "category": document.getElementById("articleCategory").value,
         "title": document.getElementById("articleTitleInput").value,
@@ -60,6 +58,9 @@ document.getElementById("confirmButton").addEventListener("click", function () {
                 // If POST is successful
                 alert("การส่งข้อมูลสำเร็จ!");
                 clearForm();  // Reset the form
+
+                // Send email notification via Lambda+SNS
+                sendEmailNotification();
             } else {
                 throw new Error("เกิดข้อผิดพลาดในการส่งข้อมูล");
             }
@@ -76,10 +77,30 @@ function clearForm() {
     document.getElementById("articleImageInput").value = "";
     document.getElementById("articlePDFInput").value = "";
     document.getElementById("articleTitleInput").value = "";
-    document.getElementById("articleAuthorInput").value = "";
     document.getElementById("articleDescriptionInput").value = "";
     document.getElementById("articleCategory").selectedIndex = 0;
 
     // Clear image preview
-    document.getElementById("imagePreview").innerHTML = "";
+    document.getElementById("preview").src = "";
+    document.getElementById("preview").style.display = "none";
 }
+
+// Function to send email notification using Lambda+SNS
+// Function to send email notification using Lambda+SNS
+function sendEmailNotification() {
+
+    // Convert emailData to query string parameters
+    //const queryString = new URLSearchParams(emailData).toString();
+    //const requestURL = `${lambdaURL}?${queryString}`;
+
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+
+    fetch("https://l23fkcs1mc.execute-api.us-east-1.amazonaws.com/notifyEmail", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+    }
+
