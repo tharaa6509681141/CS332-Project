@@ -30,8 +30,8 @@ if (articleId) {
                 articleDetailsContainer.innerHTML = `
                     <img src="${data.thumbnail_url}" alt="${data.title}">
                     <h1>${data.title}</h1>
-                    <p>ผู้เขียน: ${data.author}</p>
-                    <p>เผยแพร่เมื่อ: ${formattedDate}</p>
+                    <h2>ผู้เขียน: ${data.author}</h2>
+                    <h2>เผยแพร่เมื่อ: ${formattedDate}</h2>
                     <div id="markdown-content" class="markdown-section"></div>
                 `;
 

@@ -37,9 +37,15 @@ body {
   color: #333;
 }
 
-#articleDetails p {
+#articleDetails h2 {
   font-size: 1rem;
   text-align: center;
+  margin: 5px 0;
+  color: #666;
+}
+
+#articleDetails p {
+  font-size: 1rem;
   margin: 5px 0;
   color: #666;
 }
