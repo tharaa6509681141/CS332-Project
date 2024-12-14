@@ -19,7 +19,7 @@ public class BrainyBiteWebApplication {
 	@Bean
 	public ApplicationRunner applicationRunner(S3Service s3Service) {
 		return args -> {
-			log.info("Brainy Bite Web Application Start...");
+			//log.info("Brainy Bite Web Application Start...");
 		};
 	}
 
