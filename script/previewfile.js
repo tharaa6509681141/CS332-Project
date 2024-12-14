@@ -17,7 +17,7 @@ function formatDate(dateString) {
 
 if (articleId) {
     // Fetch article details using the article ID
-    fetch(`http://localhost:8080/api/article-detail/${articleId}`)
+    fetch(`/api/article-detail/${articleId}`)
         .then(response => response.json())
         .then(data => {
             const articleDetailsContainer = document.getElementById("articleDetails");

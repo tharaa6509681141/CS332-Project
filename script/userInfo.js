@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Fetch user information from the backend
-    fetch(`http://localhost:8080/api/info/${userId}`)
+    // Fetch user information from the backend
+    fetch(`/api/info/${userId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
